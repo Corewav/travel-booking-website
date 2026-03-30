@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Ocean View Resort",
+    "location": "Goa, India",
+    "price": 2500,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=800",
+    "description": "Experience luxury with a stunning view of the ocean. Includes free breakfast, swimming pool, and spa services.",
+    "available_rooms": 12
+  },
+  {
+    "id": 2,
+    "name": "Mountain Paradise",
+    "location": "Manali, India",
+    "price": 3200,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=800",
+    "description": "Escape to the beautiful mountains. Wake up to the view of snow-capped peaks and enjoy cozy wooden interiors.",
+    "available_rooms": 5
+  },
+  {
+    "id": 3,
+    "name": "City Core Hotel",
+    "location": "Mumbai, India",
+    "price": 4000,
+    "rating": 4.2,
+    "image": "https://images.unsplash.com/photo-1551882547-ff40c0d128dc?auto=format&fit=crop&q=80&w=800",
+    "description": "Located in the heart of Mumbai. Perfect for business and leisure. Close to major shopping malls and attractions.",
+    "available_rooms": 8
+  },
+  {
+    "id": 4,
+    "name": "Eiffel Tower Inn",
+    "location": "Paris, France",
+    "price": 8500,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=800",
+    "description": "A classic romantic getaway in the center of Paris. Only 10 minutes walking distance from the Eiffel Tower.",
+    "available_rooms": 2
+  },
+  {
+    "id": 5,
+    "name": "Tokyo Zen Hotel",
+    "location": "Tokyo, Japan",
+    "price": 5000,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1542051812871-75ec315f0eb6?auto=format&fit=crop&q=80&w=800",
+    "description": "Minimalist Japanese aesthetics with modern amenities. Connect your mind to Zen culture.",
+    "available_rooms": 10
+  },
+  {
+    "id": 6,
+    "name": "Desert Oasis Camp",
+    "location": "Dubai, UAE",
+    "price": 6500,
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1542314831-c6a4d14db7f7?auto=format&fit=crop&q=80&w=800",
+    "description": "Luxury tents in the middle of the desert. Includes camel rides, dune bashing, and traditional dinner.",
+    "available_rooms": 20
+  }
+]
