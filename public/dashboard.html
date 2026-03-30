@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Travel Booking</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .dashboard-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .header h1 {
+        margin: 0;
+      }
+
+      .logout-btn {
+        background: white;
+        color: #667eea;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #e0e0e0;
+      }
+
+      .tab-button {
+        padding: 12px 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        color: #666;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s;
+      }
+
+      .tab-button.active {
+        color: #667eea;
+        border-bottom-color: #667eea;
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .profile-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      .profile-info {
+        margin-bottom: 20px;
+      }
+
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .info-row label {
+        font-weight: bold;
+        color: #333;
+      }
+
+      .booking-card {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border-left: 5px solid #667eea;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .booking-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        align-items: center;
+      }
+
+      .booking-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .status-badge {
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .status-confirmed {
+        background: #d5f4e6;
+        color: #27ae60;
+      }
+
+      .status-pending {
+        background: #fdebd0;
+        color: #e67e22;
+      }
+
+      .status-cancelled {
+        background: #fadbd8;
+        color: #c0392b;
+      }
+
+      .booking-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .detail-item {
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 5px;
+      }
+
+      .detail-label {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 5px;
+      }
+
+      .detail-value {
+        font-size: 14px;
+        color: #333;
+        font-weight: bold;
+      }
+
+      .no-data {
+        text-align: center;
+        padding: 40px 20px;
+        color: #666;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: bold;
+        transition: all 0.3s;
+      }
+
+      .btn-review {
+        background: #667eea;
+        color: white;
+      }
+
+      .btn-review:hover {
+        background: #764ba2;
+      }
+
+      .btn-cancel {
+        background: #e74c3c;
+        color: white;
+      }
+
+      .btn-cancel:hover {
+        background: #c0392b;
+      }
+
+      .message {
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .message.success {
+        background: #d5f4e6;
+        color: #27ae60;
+      }
+
+      .message.error {
+        background: #fadbd8;
+        color: #c0392b;
+      }
+
+      .edit-form {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 500px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .form-buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .form-buttons button {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .form-buttons .save {
+        background: #667eea;
+        color: white;
+      }
+
+      .form-buttons .cancel {
+        background: #e0e0e0;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <div class="header">
+        <div>
+          <h1>Welcome, <span id="userName">User</span>!</h1>
+          <p>Manage your bookings and profile</p>
+        </div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-button active" onclick="switchTab('profile')">
+          Profile
+        </button>
+        <button class="tab-button" onclick="switchTab('bookings')">
+          My Bookings
+        </button>
+      </div>
+
+      <!-- Profile Tab -->
+      <div id="profile" class="tab-content active">
+        <div class="profile-card">
+          <h2>Account Information</h2>
+          <div id="profileMessage"></div>
+          <div id="editForm" style="display: none">
+            <div class="edit-form">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="editName" />
+              </div>
+              <div class="form-buttons">
+                <button class="save" onclick="updateProfile()">Save</button>
+                <button class="cancel" onclick="cancelEdit()">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <div id="profileInfo">
+            <div class="profile-info">
+              <div class="info-row">
+                <label>Name:</label>
+                <span id="displayName">-</span>
+              </div>
+              <div class="info-row">
+                <label>Email:</label>
+                <span id="displayEmail">-</span>
+              </div>
+              <div class="info-row">
+                <label>Member Since:</label>
+                <span id="displayDate">-</span>
+              </div>
+            </div>
+            <button
+              class="logout-btn"
+              style="width: 100%; margin-top: 20px"
+              onclick="editProfile()"
+            >
+              Edit Profile
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bookings Tab -->
+      <div id="bookings" class="tab-content">
+        <div id="bookingMessage"></div>
+        <div id="bookingsList"></div>
+      </div>
+    </div>
+
+    <script>
+      // Check authentication
+      if (!localStorage.getItem("token")) {
+        window.location.href = "auth.html";
+      }
+
+      // Initialize dashboard
+      async function initDashboard() {
+        document.getElementById("userName").textContent =
+          localStorage.getItem("userName") || "User";
+        await loadProfile();
+        await loadBookings();
+      }
+
+      async function loadProfile() {
+        try {
+          const response = await fetch("/api/auth/profile", {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          });
+          const data = await response.json();
+
+          if (data.success) {
+            const user = data.user;
+            document.getElementById("displayName").textContent = user.name;
+            document.getElementById("displayEmail").textContent = user.email;
+            document.getElementById("displayDate").textContent = new Date(
+              user.created_at,
+            ).toLocaleDateString();
+          }
+        } catch (error) {
+          console.error("Error loading profile:", error);
+        }
+      }
+
+      async function loadBookings() {
+        try {
+          const response = await fetch("/api/bookings/user-bookings", {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          });
+          const data = await response.json();
+
+          if (data.success) {
+            displayBookings(data.bookings);
+          }
+        } catch (error) {
+          console.error("Error loading bookings:", error);
+        }
+      }
+
+      function displayBookings(bookings) {
+        const container = document.getElementById("bookingsList");
+
+        if (bookings.length === 0) {
+          container.innerHTML =
+            '<div class="no-data"><p>No bookings yet. <a href="hotels.html">Start booking now!</a></p></div>';
+          return;
+        }
+
+        container.innerHTML = bookings
+          .map(
+            (booking) => `
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <div class="booking-title">${booking.hotel_name}</div>
+                        <span class="status-badge status-${booking.status.toLowerCase().replace(" ", "-")}">${booking.status}</span>
+                    </div>
+                    <div class="booking-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Booking ID</div>
+                            <div class="detail-value">${booking.id}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Check-in</div>
+                            <div class="detail-value">${new Date(booking.check_in).toLocaleDateString()}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Check-out</div>
+                            <div class="detail-value">${new Date(booking.check_out).toLocaleDateString()}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Total Price</div>
+                            <div class="detail-value">₹${booking.total_price}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Guests</div>
+                            <div class="detail-value">${booking.guests}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Created</div>
+                            <div class="detail-value">${new Date(booking.created_at).toLocaleDateString()}</div>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-review" onclick="addReview(${booking.hotel_id}, '${booking.hotel_name}')">Write Review</button>
+                        ${booking.status === "Confirmed" ? `<button class="btn btn-cancel" onclick="cancelBooking('${booking.id}')">Cancel Booking</button>` : ""}
+                    </div>
+                </div>
+            `,
+          )
+          .join("");
+      }
+
+      function switchTab(tabName) {
+        // Hide all tabs
+        document.querySelectorAll(".tab-content").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Remove active class from all buttons
+        document.querySelectorAll(".tab-button").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+
+        // Show selected tab
+        document.getElementById(tabName).classList.add("active");
+
+        // Add active class to clicked button
+        event.target.classList.add("active");
+      }
+
+      function editProfile() {
+        document.getElementById("profileInfo").style.display = "none";
+        document.getElementById("editForm").style.display = "block";
+        document.getElementById("editName").value =
+          document.getElementById("displayName").textContent;
+      }
+
+      function cancelEdit() {
+        document.getElementById("editForm").style.display = "none";
+        document.getElementById("profileInfo").style.display = "block";
+      }
+
+      async function updateProfile() {
+        const name = document.getElementById("editName").value;
+
+        try {
+          const response = await fetch("/api/auth/profile", {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+            body: JSON.stringify({ name }),
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            localStorage.setItem("userName", name);
+            await loadProfile();
+            cancelEdit();
+            showMessage(
+              "profileMessage",
+              "Profile updated successfully!",
+              "success",
+            );
+          } else {
+            showMessage(
+              "profileMessage",
+              data.error || "Update failed",
+              "error",
+            );
+          }
+        } catch (error) {
+          showMessage("profileMessage", error.message, "error");
+        }
+      }
+
+      async function cancelBooking(bookingId) {
+        if (confirm("Are you sure you want to cancel this booking?")) {
+          try {
+            const response = await fetch(`/api/bookings/${bookingId}/cancel`, {
+              method: "DELETE",
+              headers: {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+              },
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+              showMessage(
+                "bookingMessage",
+                "Booking cancelled successfully!",
+                "success",
+              );
+              await loadBookings();
+            } else {
+              showMessage(
+                "bookingMessage",
+                data.error || "Cancellation failed",
+                "error",
+              );
+            }
+          } catch (error) {
+            showMessage("bookingMessage", error.message, "error");
+          }
+        }
+      }
+
+      function addReview(hotelId, hotelName) {
+        window.location.href = `reviews-add.html?hotel_id=${hotelId}&hotel_name=${encodeURIComponent(hotelName)}`;
+      }
+
+      function showMessage(elementId, message, type) {
+        const element = document.getElementById(elementId);
+        element.innerHTML = `<div class="message ${type}">${message}</div>`;
+      }
+
+      function logout() {
+        if (confirm("Are you sure you want to logout?")) {
+          localStorage.removeItem("token");
+          localStorage.removeItem("userId");
+          localStorage.removeItem("userName");
+          window.location.href = "index.html";
+        }
+      }
+
+      // Initialize on page load
+      initDashboard();
+    </script>
+  </body>
+</html>

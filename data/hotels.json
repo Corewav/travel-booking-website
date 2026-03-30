@@ -58,5 +58,365 @@
     "image": "https://images.unsplash.com/photo-1542314831-c6a4d14db7f7?auto=format&fit=crop&q=80&w=800",
     "description": "Luxury tents in the middle of the desert. Includes camel rides, dune bashing, and traditional dinner.",
     "available_rooms": 20
+  },
+  {
+    "id": 7,
+    "name": "Times Square Plaza",
+    "location": "New York, USA",
+    "price": 12000,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1551632786-2e13130c3a74?auto=format&fit=crop&q=80&w=800",
+    "description": "Experience the vibrant energy of Times Square. Walking distance to Broadway, shopping, and entertainment.",
+    "available_rooms": 15
+  },
+  {
+    "id": 8,
+    "name": "Hollywood Glamour",
+    "location": "Los Angeles, USA",
+    "price": 9500,
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1549144207-f10b7babc02a?auto=format&fit=crop&q=80&w=800",
+    "description": "Stay like a star in the heart of Hollywood. Pool with city views, spa, and gourmet dining.",
+    "available_rooms": 18
+  },
+  {
+    "id": 9,
+    "name": "Las Vegas Luxury",
+    "location": "Las Vegas, USA",
+    "price": 7500,
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1597269559949-88fb5b5e70f8?auto=format&fit=crop&q=80&w=800",
+    "description": "Premium casino resort with world-class entertainment, fine dining, and spectacular shows.",
+    "available_rooms": 25
+  },
+  {
+    "id": 10,
+    "name": "Windy City Executive",
+    "location": "Chicago, USA",
+    "price": 8000,
+    "rating": 4.3,
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
+    "description": "Modern hotel overlooking Lake Michigan. Perfect for business travelers with rooftop views.",
+    "available_rooms": 22
+  },
+  {
+    "id": 11,
+    "name": "Miami Beach Resort",
+    "location": "Miami, USA",
+    "price": 6800,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1551445165-cd345ad50e3f?auto=format&fit=crop&q=80&w=800",
+    "description": "Beachfront paradise with white sand, crystal clear water, and vibrant nightlife.",
+    "available_rooms": 30
+  },
+  {
+    "id": 12,
+    "name": "Golden Gate Vista",
+    "location": "San Francisco, USA",
+    "price": 10000,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1549213783-acf67d3cf60c?auto=format&fit=crop&q=80&w=800",
+    "description": "Panoramic views of Golden Gate Bridge. Modern amenities in a historic setting.",
+    "available_rooms": 16
+  },
+  {
+    "id": 13,
+    "name": "Big Ben London",
+    "location": "London, United Kingdom",
+    "price": 9000,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&q=80&w=800",
+    "description": "Historic luxury hotel in Westminster. Walking distance to Big Ben, Parliament, and royal attractions.",
+    "available_rooms": 12
+  },
+  {
+    "id": 14,
+    "name": "Edinburgh Castle View",
+    "location": "Edinburgh, United Kingdom",
+    "price": 5500,
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1551362185-e5cd997fccd3?auto=format&fit=crop&q=80&w=800",
+    "description": "Charming boutique hotel with views of Edinburgh Castle and the Royal Mile.",
+    "available_rooms": 8
+  },
+  {
+    "id": 15,
+    "name": "Sagrada Familia Suites",
+    "location": "Barcelona, Spain",
+    "price": 7200,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1551878745-9bdaaeb00923?auto=format&fit=crop&q=80&w=800",
+    "description": "Modern design hotel near Gaudí's masterpiece. Rooftop pool with city views.",
+    "available_rooms": 14
+  },
+  {
+    "id": 16,
+    "name": "Madrid Royal Palace",
+    "location": "Madrid, Spain",
+    "price": 6500,
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1550355291-bbee04a248f0?auto=format&fit=crop&q=80&w=800",
+    "description": "Elegant hotel in the historic city center. Steps away from museums and royal palaces.",
+    "available_rooms": 11
+  },
+  {
+    "id": 17,
+    "name": "Roman Colosseum View",
+    "location": "Rome, Italy",
+    "price": 8200,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1551353489-fda2e9246b7f?auto=format&fit=crop&q=80&w=800",
+    "description": "Ancient history meets modern luxury. Direct views of the Colosseum from the rooftop terrace.",
+    "available_rooms": 13
+  },
+  {
+    "id": 18,
+    "name": "Venice Grand Canal",
+    "location": "Venice, Italy",
+    "price": 9500,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1552832860-cfb67165eaf0?auto=format&fit=crop&q=80&w=800",
+    "description": "Luxury palace hotel on the Grand Canal. Experience Venice as aristocrats do.",
+    "available_rooms": 6
+  },
+  {
+    "id": 19,
+    "name": "Milan Fashion Hub",
+    "location": "Milan, Italy",
+    "price": 7800,
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Fashion capital luxury hotel. Near the Duomo and shopping district.",
+    "available_rooms": 17
+  },
+  {
+    "id": 20,
+    "name": "Berlin Modern Living",
+    "location": "Berlin, Germany",
+    "price": 5800,
+    "rating": 4.3,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Contemporary design hotel in the heart of Berlin. Near Brandenburg Gate and historic sites.",
+    "available_rooms": 19
+  },
+  {
+    "id": 21,
+    "name": "Munich Bavarian Palace",
+    "location": "Munich, Germany",
+    "price": 6500,
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Traditional Bavarian luxury near Marienplatz. Perfect for traditional charm and beer gardens.",
+    "available_rooms": 10
+  },
+  {
+    "id": 22,
+    "name": "Amsterdam Canal House",
+    "location": "Amsterdam, Netherlands",
+    "price": 6200,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1531536414244-f34a9f8b9008?auto=format&fit=crop&q=80&w=800",
+    "description": "Historic canal-side hotel with Dutch charm. Perfect for cycling and exploring the city.",
+    "available_rooms": 9
+  },
+  {
+    "id": 23,
+    "name": "Bangkok Temple Luxury",
+    "location": "Bangkok, Thailand",
+    "price": 3500,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Luxury riverside hotel with traditional Thai design. Near Grand Palace and floating markets.",
+    "available_rooms": 24
+  },
+  {
+    "id": 24,
+    "name": "Sydney Harbour Iconic",
+    "location": "Sydney, Australia",
+    "price": 7200,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Right at the iconic Opera House. Stunning harbour views and beach access.",
+    "available_rooms": 11
+  },
+  {
+    "id": 25,
+    "name": "Melbourne Spirit",
+    "location": "Melbourne, Australia",
+    "price": 6800,
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Cultural hub hotel in the lively lanes. Near galleries, cafes, and street art.",
+    "available_rooms": 14
+  },
+  {
+    "id": 26,
+    "name": "Toronto CN Tower",
+    "location": "Toronto, Canada",
+    "price": 5900,
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Modern hotel next to the iconic CN Tower. Prime location for city exploration.",
+    "available_rooms": 20
+  },
+  {
+    "id": 27,
+    "name": "Vancouver Coastal Beauty",
+    "location": "Vancouver, Canada",
+    "price": 6500,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Waterfront luxury with mountain views. Perfect for nature and city lovers.",
+    "available_rooms": 15
+  },
+  {
+    "id": 28,
+    "name": "Cancun Paradise Beach",
+    "location": "Cancun, Mexico",
+    "price": 5500,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "All-inclusive beachfront resort. Turquoise waters and white sand beach.",
+    "available_rooms": 28
+  },
+  {
+    "id": 29,
+    "name": "Mexico City Heritage",
+    "location": "Mexico City, Mexico",
+    "price": 4200,
+    "rating": 4.3,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Historic hotel in Zócalo Square. Rich cultural heritage and colonial architecture.",
+    "available_rooms": 12
+  },
+  {
+    "id": 30,
+    "name": "Rio Christ Redeemer",
+    "location": "Rio de Janeiro, Brazil",
+    "price": 6200,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Beachfront luxury with views of Christ the Redeemer. Samba, beaches, and mountains.",
+    "available_rooms": 19
+  },
+  {
+    "id": 31,
+    "name": "São Paulo Modern",
+    "location": "São Paulo, Brazil",
+    "price": 5800,
+    "rating": 4.2,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Contemporary hotel in the business district. Trendy restaurants and nightlife nearby.",
+    "available_rooms": 21
+  },
+  {
+    "id": 32,
+    "name": "Cairo Nile Pyramid",
+    "location": "Cairo, Egypt",
+    "price": 3200,
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Luxury hotel with views of the Nile and pyramids. Gateway to ancient wonders.",
+    "available_rooms": 16
+  },
+  {
+    "id": 33,
+    "name": "Giza Sphinx Palace",
+    "location": "Giza, Egypt",
+    "price": 3800,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Right at the gates of the Great Pyramids. Perfect for history enthusiasts.",
+    "available_rooms": 10
+  },
+  {
+    "id": 34,
+    "name": "Marrakech Riad Royale",
+    "location": "Marrakech, Morocco",
+    "price": 3900,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Traditional riad with Moroccan elegance. Medina location with market access.",
+    "available_rooms": 7
+  },
+  {
+    "id": 35,
+    "name": "Casablanca Hassan Tower",
+    "location": "Casablanca, Morocco",
+    "price": 4500,
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Modern hotel near the Hassan II Mosque. Coastal city charm and French colonial architecture.",
+    "available_rooms": 13
+  },
+  {
+    "id": 36,
+    "name": "Athens Acropolis view",
+    "location": "Athens, Greece",
+    "price": 5200,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Boutique hotel with stunning Acropolis views. Ancient history at your doorstep.",
+    "available_rooms": 9
+  },
+  {
+    "id": 37,
+    "name": "Santorini Sunset Paradise",
+    "location": "Santorini, Greece",
+    "price": 8500,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Clifftop luxury with sunset views. Whitewashed architecture and Mediterranean romance.",
+    "available_rooms": 5
+  },
+  {
+    "id": 38,
+    "name": "Singapore Marina Bay",
+    "location": "Singapore, Singapore",
+    "price": 7800,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Ultra-modern luxury with iconic rooftop infinity pool. Shopping and dining paradise.",
+    "available_rooms": 12
+  },
+  {
+    "id": 39,
+    "name": "Kuala Lumpur Twin Towers",
+    "location": "Kuala Lumpur, Malaysia",
+    "price": 4800,
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Luxury hotel next to the iconic Petronas Twin Towers. Modern Asian elegance.",
+    "available_rooms": 18
+  },
+  {
+    "id": 40,
+    "name": "Bali Ubud Serenity",
+    "location": "Bali, Indonesia",
+    "price": 2800,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Tropical paradise with rice terraces. Yoga retreats and spiritual wellness.",
+    "available_rooms": 22
+  },
+  {
+    "id": 41,
+    "name": "Manila Bay Luxury",
+    "location": "Manila, Philippines",
+    "price": 3600,
+    "rating": 4.3,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Beachfront resort with tropical gardens. Gateway to Philippine islands.",
+    "available_rooms": 20
+  },
+  {
+    "id": 42,
+    "name": "Seoul Tower Seoul",
+    "location": "Seoul, South Korea",
+    "price": 5200,
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1551355155-cbf7ee03ddf9?auto=format&fit=crop&q=80&w=800",
+    "description": "Modern luxury in the heart of Seoul. K-pop culture and futuristic shopping.",
+    "available_rooms": 24
   }
 ]

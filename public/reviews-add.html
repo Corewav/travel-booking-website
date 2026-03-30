@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Write a Review - Travel Booking</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      .back-btn {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: #667eea;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .back-btn:hover {
+        text-decoration: underline;
+      }
+
+      .review-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .review-card h1 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .hotel-info {
+        margin-bottom: 30px;
+        padding: 15px;
+        background: #f9f9f9;
+        border-radius: 5px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: bold;
+      }
+
+      .rating-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .star {
+        font-size: 32px;
+        cursor: pointer;
+        color: #ccc;
+        transition: color 0.3s;
+      }
+
+      .star:hover,
+      .star.selected {
+        color: #ffc107;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 150px;
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 14px;
+        resize: vertical;
+        transition: border-color 0.3s;
+      }
+
+      textarea:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 30px;
+      }
+
+      button {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .submit-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .cancel-btn {
+        background: #e0e0e0;
+        color: #333;
+      }
+
+      .cancel-btn:hover {
+        background: #cccccc;
+      }
+
+      .message {
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .message.error {
+        background: #fadbd8;
+        color: #c0392b;
+      }
+
+      .message.success {
+        background: #d5f4e6;
+        color: #27ae60;
+      }
+
+      .char-count {
+        font-size: 12px;
+        color: #666;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="dashboard.html" class="back-btn">← Back to Dashboard</a>
+
+      <div class="review-card">
+        <h1>Write a Review</h1>
+        <div class="hotel-info">
+          <p><strong>Hotel:</strong> <span id="hotelName">-</span></p>
+        </div>
+
+        <div id="message"></div>
+
+        <form onsubmit="submitReview(event)">
+          <div class="form-group">
+            <label>Rating (1-5 stars)</label>
+            <div class="rating-group" id="ratingGroup">
+              <span class="star" onclick="setRating(1)">★</span>
+              <span class="star" onclick="setRating(2)">★</span>
+              <span class="star" onclick="setRating(3)">★</span>
+              <span class="star" onclick="setRating(4)">★</span>
+              <span class="star" onclick="setRating(5)">★</span>
+            </div>
+            <span id="ratingValue" style="color: #667eea; font-weight: bold"
+              >No rating selected</span
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Your Review (Minimum 5 characters)</label>
+            <textarea
+              id="comment"
+              placeholder="Share your experience at this hotel..."
+              onkeyup="updateCharCount()"
+            ></textarea>
+            <div class="char-count">
+              <span id="charCount">0</span>/500 characters
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button type="submit" class="submit-btn">Submit Review</button>
+            <button
+              type="button"
+              class="cancel-btn"
+              onclick="window.location.href = 'dashboard.html'"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Check authentication
+      if (!localStorage.getItem("token")) {
+        window.location.href = "auth.html";
+      }
+
+      let selectedRating = 0;
+
+      // Get hotel info from URL
+      function initPage() {
+        const params = new URLSearchParams(window.location.search);
+        const hotelId = params.get("hotel_id");
+        const hotelName = params.get("hotel_name");
+
+        if (!hotelId) {
+          window.location.href = "dashboard.html";
+          return;
+        }
+
+        document.getElementById("hotelName").textContent =
+          hotelName || "Unknown Hotel";
+        document.title = `Write Review - ${hotelName}`;
+      }
+
+      function setRating(rating) {
+        selectedRating = rating;
+        const stars = document.querySelectorAll(".star");
+        stars.forEach((star, index) => {
+          if (index < rating) {
+            star.classList.add("selected");
+          } else {
+            star.classList.remove("selected");
+          }
+        });
+        document.getElementById("ratingValue").textContent =
+          `${rating} out of 5 stars`;
+      }
+
+      function updateCharCount() {
+        const count = document.getElementById("comment").value.length;
+        document.getElementById("charCount").textContent = Math.min(count, 500);
+      }
+
+      function showMessage(message, type) {
+        const element = document.getElementById("message");
+        element.innerHTML = `<div class="message ${type}">${message}</div>`;
+      }
+
+      async function submitReview(event) {
+        event.preventDefault();
+
+        if (!selectedRating) {
+          showMessage("Please select a rating", "error");
+          return;
+        }
+
+        const comment = document.getElementById("comment").value.trim();
+        if (comment.length < 5) {
+          showMessage("Review must be at least 5 characters", "error");
+          return;
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const hotelId = parseInt(params.get("hotel_id"));
+
+        try {
+          const response = await fetch("/api/reviews", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+            body: JSON.stringify({
+              hotel_id: hotelId,
+              rating: selectedRating,
+              comment,
+            }),
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            showMessage("Review submitted successfully!", "success");
+            setTimeout(() => (window.location.href = "dashboard.html"), 1500);
+          } else {
+            showMessage(
+              data.errors
+                ? data.errors[0]
+                : data.error || "Failed to submit review",
+              "error",
+            );
+          }
+        } catch (error) {
+          showMessage("Error: " + error.message, "error");
+        }
+      }
+
+      // Initialize page on load
+      initPage();
+    </script>
+  </body>
+</html>

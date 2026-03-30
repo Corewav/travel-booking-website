@@ -12,5 +12,23 @@
     "price": 2500,
     "status": "Confirmed",
     "created_at": "2026-03-30T05:17:36.097Z"
+  },
+  {
+    "id": "BKG306557",
+    "user_id": null,
+    "name": "sahil yadav",
+    "email": "sahilyadav9170@gmail.com",
+    "phone": "9170674903",
+    "hotel_id": 2,
+    "hotel_name": "Mountain Paradise",
+    "check_in": "2026-03-30",
+    "check_out": "2026-03-31",
+    "guests": 2,
+    "price_per_night": 3200,
+    "total_price": 3200,
+    "status": "Confirmed",
+    "created_at": "2026-03-30T09:33:39.695Z",
+    "payment_date": "2026-03-30T09:34:17.380Z",
+    "cancellation_date": null
   }
 ]

@@ -1,60 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TravelDemo - Hotel Details</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-</head>
-<body>
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">🗺️ TravelDemo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="hotels.html">Hotels</a></li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="index.html">🗺️ TravelDemo</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="hotels.html">Hotels</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Loader -->
     <div id="loader" class="loader-wrapper"><div class="spinner"></div></div>
 
     <div class="container page-container" id="hotelDetailContainer">
-        <!-- Details setup via JS -->
+      <!-- Details setup via JS -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const hotelId = urlParams.get('id');
-            
-            if(!hotelId) {
-                window.location.href = "hotels.html";
-                return;
-            }
+      document.addEventListener("DOMContentLoaded", async () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hotelId = urlParams.get("id");
 
-            showLoader();
-            try {
-                const response = await fetch(`/api/hotel-details/${hotelId}`);
-                if (!response.ok) throw new Error("Hotel not found");
-                
-                const hotel = await response.json();
-                
-                // Store selected hotel info temporarily for booking phase
-                sessionStorage.setItem('selectedHotel', JSON.stringify(hotel));
+        if (!hotelId) {
+          window.location.href = "hotels.html";
+          return;
+        }
 
-                document.getElementById('hotelDetailContainer').innerHTML = `
+        showLoader();
+        try {
+          const response = await fetch(`/api/hotels/${hotelId}`);
+          if (!response.ok) throw new Error("Hotel not found");
+
+          const data = await response.json();
+          const hotel = data.hotel || data;
+
+          // Store selected hotel info temporarily for booking phase
+          sessionStorage.setItem("selectedHotel", JSON.stringify(hotel));
+
+          document.getElementById("hotelDetailContainer").innerHTML = `
                     <div class="row">
                         <div class="col-lg-7 mb-4">
                             <img src="${hotel.image}" class="detail-img mb-3" alt="${hotel.name}">
@@ -78,18 +90,19 @@
                         </div>
                     </div>
                 `;
-            } catch (error) {
-                console.error("Error", error);
-                document.getElementById('hotelDetailContainer').innerHTML = `<div class="alert alert-danger">Hotel not found.</div>`;
-            } finally {
-                hideLoader();
-            }
-        });
-
-        function proceedToBook() {
-            // Check if user has search dates, if not suggest setting them on the booking page
-            window.location.href = "book.html";
+        } catch (error) {
+          console.error("Error", error);
+          document.getElementById("hotelDetailContainer").innerHTML =
+            `<div class="alert alert-danger">Hotel not found.</div>`;
+        } finally {
+          hideLoader();
         }
+      });
+
+      function proceedToBook() {
+        // Check if user has search dates, if not suggest setting them on the booking page
+        window.location.href = "book.html";
+      }
     </script>
-</body>
+  </body>
 </html>
